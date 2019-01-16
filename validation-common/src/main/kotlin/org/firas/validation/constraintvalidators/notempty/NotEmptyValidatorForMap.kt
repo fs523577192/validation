@@ -18,7 +18,7 @@ import org.firas.validation.constraints.NotEmpty
  * @author Guillaume Smet
  * @author Wu Yuping
  */
-class NotEmptyValidatorForMap<K, V>: ConstraintValidator<NotEmpty, Map<K, V>?> {
+class NotEmptyValidatorForMap: ConstraintValidator<NotEmpty, Map<*, *>?> {
 
     override fun initialize(constraintAnnotation: NotEmpty) {
     }
@@ -30,7 +30,7 @@ class NotEmptyValidatorForMap<K, V>: ConstraintValidator<NotEmpty, Map<K, V>?> {
      * @param constraintValidatorContext context in which the constraint is evaluated
      * @return returns `true` if the map is not `null` and the map is not empty
      */
-    override fun isValid(value: Map<K, V>?, context: ConstraintValidatorContext): Boolean {
+    override fun isValid(value: Map<*, *>?, context: ConstraintValidatorContext): Boolean {
         return null != value && !value.isEmpty()
     }
 }

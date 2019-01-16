@@ -18,7 +18,7 @@ import org.firas.validation.constraints.NotEmpty
  * @author Guillaume Smet
  * @author Wu Yuping
  */
-class NotEmptyValidatorForCollection<T>: ConstraintValidator<NotEmpty, Collection<T>?> {
+class NotEmptyValidatorForCollection: ConstraintValidator<NotEmpty, Collection<*>?> {
 
     override fun initialize(constraintAnnotation: NotEmpty) {
     }
@@ -30,7 +30,7 @@ class NotEmptyValidatorForCollection<T>: ConstraintValidator<NotEmpty, Collectio
      * @param constraintValidatorContext context in which the constraint is evaluated
      * @return returns `true` if the collection is not `null` and the collection is not empty
      */
-    override fun isValid(value: Collection<T>?, context: ConstraintValidatorContext): Boolean {
+    override fun isValid(value: Collection<*>?, context: ConstraintValidatorContext): Boolean {
         return null != value && !value.isEmpty()
     }
 }
