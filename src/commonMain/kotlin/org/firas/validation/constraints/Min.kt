@@ -11,33 +11,44 @@ package org.firas.validation.constraints
 import kotlin.reflect.KClass
 
 /**
- * The annotated element must not be `null` nor empty. Supported types are:
+ * The annotated element must be a number whose value must be higher or
+ * equal to the specified minimum.
+ *
+ *
+ * Supported types are:
  * <ul>
- * <li>`CharSequence` (length of character sequence is evaluated)</li>
- * <li>`Collection` (collection size is evaluated)</li>
- * <li>`Map` (map size is evaluated)</li>
- * <li>Array (array length is evaluated)</li>
+ *     <li>`BigDecimal`</li>
+ *     <li>`BigInteger`</li>
+ *     <li>`byte`, `short`, `int`, `long`, and their respective
+ *     wrappers</li>
  * </ul>
+ * Note that `double` and `float` are not supported due to rounding errors
+ * (some providers might provide some approximative support).
+ *
+ *
+ * `null` elements are considered valid.
  *
  * @author Emmanuel Bernard
- * @author Hardy Ferentschik
  * @author Wu Yuping
- *
- * @since 2.0
  */
 @Target(AnnotationTarget.FIELD, AnnotationTarget.ANNOTATION_CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.VALUE_PARAMETER)
 @Retention(AnnotationRetention.RUNTIME)
 @MustBeDocumented
-annotation class NotEmpty(
+annotation class Min(
         /**
          * the error message template
          */
-        val message: String = "{org.firas.constraints.NotEmpty.message}",
+        val message: String = "{org.firas.validation.constraints.Min.message}",
 
         /**
          * the groups the constraint belongs to
          */
-        val groups: Array<KClass<*>> = []
+        val groups: Array<KClass<*>> = arrayOf(),
 
         // TODO: val payload: Array<KClass<*: Payload>> = [],
+
+        /**
+         * @return value the element must be higher or equal to
+         */
+        val value: Long
 )

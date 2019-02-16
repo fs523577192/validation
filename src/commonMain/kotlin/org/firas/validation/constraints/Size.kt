@@ -22,7 +22,7 @@ annotation class Size(
     /**
      * the groups the constraint belongs to
      */
-    val groups: Array<KClass<*>> = [],
+    val groups: Array<KClass<*>> = arrayOf(),
 
     // TODO: val payload: Array<KClass<*: Payload>> = [],
 

@@ -1,6 +1,9 @@
 pluginManagement {
     resolutionStrategy {
         eachPlugin {
+            if (requested.id.id == "kotlin-multiplatform") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
             if (requested.id.id == "kotlin-platform-common") {
                 useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
             }
@@ -15,6 +18,6 @@ pluginManagement {
         }
     }
 }
-rootProject.name = 'validator'
+rootProject.name = 'validation'
 
-include 'validation-common', 'validation-jvm', 'validation-js'
+enableFeaturePreview('GRADLE_METADATA')
