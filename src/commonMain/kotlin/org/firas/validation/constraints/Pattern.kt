@@ -8,6 +8,7 @@
  */
 package org.firas.validation.constraints
 
+import org.firas.validation.Payload
 import kotlin.reflect.KClass
 
 /**
@@ -34,7 +35,7 @@ annotation class Pattern(
          */
         val groups: Array<KClass<*>> = arrayOf(),
 
-        // TODO: val payload: Array<KClass<*: Payload>> = [],
+        val payload: Array<KClass<out Payload>> = arrayOf(),
 
         /**
          * the regular expression to match

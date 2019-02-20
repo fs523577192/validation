@@ -8,6 +8,7 @@
  */
 package org.firas.validation.constraints
 
+import org.firas.validation.Payload
 import kotlin.reflect.KClass
 
 /**
@@ -37,7 +38,7 @@ annotation class NotEmpty(
         /**
          * the groups the constraint belongs to
          */
-        val groups: Array<KClass<*>> = arrayOf()
+        val groups: Array<KClass<*>> = arrayOf(),
 
-        // TODO: val payload: Array<KClass<*: Payload>> = [],
+        val payload: Array<KClass<out Payload>> = arrayOf()
 )

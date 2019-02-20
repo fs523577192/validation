@@ -8,6 +8,7 @@
  */
 package org.firas.validation.constraints
 
+import org.firas.validation.Payload
 import kotlin.reflect.KClass
 
 /**
@@ -45,5 +46,7 @@ annotation class Future(
 
     val message: String = "{org.firas.validation.constraints.Future.message}",
 
-    val groups: Array<KClass<*>> = arrayOf()
-)
+    val groups: Array<KClass<*>> = arrayOf(),
+
+    val payload: Array<KClass<out Payload>> = arrayOf()
+    )

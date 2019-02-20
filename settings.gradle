@@ -4,6 +4,7 @@ pluginManagement {
             if (requested.id.id == "kotlin-multiplatform") {
                 useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
             }
+            /*
             if (requested.id.id == "kotlin-platform-common") {
                 useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
             }
@@ -15,6 +16,7 @@ pluginManagement {
             if (requested.id.id == "kotlin-platform-js") {
                 useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
             }
+            */
         }
     }
 }

@@ -8,6 +8,7 @@
  */
 package org.firas.validation.constraints
 
+import org.firas.validation.Payload
 import kotlin.reflect.KClass
 
 /**
@@ -24,5 +25,7 @@ annotation class NotNull(
 
     val message: String = "{org.firas.validation.constraints.NotNull.message}",
 
-    val groups: Array<KClass<*>> = arrayOf()
+    val groups: Array<KClass<*>> = arrayOf(),
+
+    val payload: Array<KClass<out Payload>> = arrayOf()
 )

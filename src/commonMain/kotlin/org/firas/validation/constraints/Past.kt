@@ -8,6 +8,7 @@
  */
 package org.firas.validation.constraints
 
+import org.firas.validation.Payload
 import kotlin.reflect.KClass
 
 /**
@@ -45,5 +46,7 @@ annotation class Past(
 
     val message: String = "{org.firas.validation.constraints.Past.message}",
 
-    val groups: Array<KClass<*>> = arrayOf()
+    val groups: Array<KClass<*>> = arrayOf(),
+
+    val payload: Array<KClass<out Payload>> = arrayOf()
 )

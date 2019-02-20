@@ -8,6 +8,7 @@
  */
 package org.firas.validation.constraints
 
+import org.firas.validation.Payload
 import kotlin.reflect.KClass
 
 /**
@@ -45,7 +46,7 @@ annotation class Min(
          */
         val groups: Array<KClass<*>> = arrayOf(),
 
-        // TODO: val payload: Array<KClass<*: Payload>> = [],
+        val payload: Array<KClass<out Payload>> = arrayOf(),
 
         /**
          * @return value the element must be higher or equal to

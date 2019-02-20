@@ -8,6 +8,7 @@
  */
 package org.firas.validation.constraints
 
+import org.firas.validation.Payload
 import kotlin.reflect.KClass
 
 @Target(AnnotationTarget.FIELD, AnnotationTarget.ANNOTATION_CLASS, AnnotationTarget.PROPERTY, AnnotationTarget.VALUE_PARAMETER)
@@ -24,7 +25,7 @@ annotation class Size(
      */
     val groups: Array<KClass<*>> = arrayOf(),
 
-    // TODO: val payload: Array<KClass<*: Payload>> = [],
+    val payload: Array<KClass<out Payload>> = arrayOf(),
 
     /**
      * value the element must be greater or equal to
