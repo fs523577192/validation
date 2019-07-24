@@ -8,6 +8,7 @@
  */
 package org.firas.validation
 
+import kotlin.js.JsName
 import kotlin.reflect.KClass
 
 /**
@@ -34,12 +35,14 @@ interface Path: Iterable<Path.Node> {
          * @return the index the node is placed in if contained in an array, a {@code List}
          *         or any other container supporting indexed access, {@code null} otherwise
          */
+        @JsName("getIndex")
         fun getIndex(): Int
 
         /**
          * @return the key the node is placed in if contained in a {@code Map} or any
          *         other container supporting keyed access, {@code null} otherwise
          */
+        @JsName("getKey")
         fun getKey(): Any?
 
         /**
@@ -47,6 +50,7 @@ interface Path: Iterable<Path.Node> {
          * a multi-valued container such as {@code Iterable} or {@code Map} or an array,
          * {@code false} otherwise
          */
+        @JsName("isInIterable")
         fun isInIterable(): Boolean
     }
 

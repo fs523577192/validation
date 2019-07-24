@@ -8,6 +8,7 @@
  */
 package org.firas.validation
 
+import kotlin.js.JsName
 import kotlin.reflect.KClass
 
 /**
@@ -21,16 +22,19 @@ import kotlin.reflect.KClass
  */
 interface ConstraintViolation<T: Any> {
 
+    @JsName("getInvalidValue")
     fun getInvalidValue(): Any?
 
     /**
      * @return the interpolated error message for this constraint violation
      */
+    @JsName("getMessage")
     fun getMessage(): String
 
     /**
      * @return the non-interpolated error message for this constraint violation
      */
+    @JsName("getMessageTemplate")
     fun getMessageTemplate(): String
 
     /**
@@ -47,6 +51,7 @@ interface ConstraintViolation<T: Any> {
      *
      * @return the validated object, the object hosting the validated element or `null`
      */
+    @JsName("getRootBean")
     fun getRootBean(): T?
 
     /**
@@ -58,5 +63,6 @@ interface ConstraintViolation<T: Any> {
      *
      * @return the class of the root bean or of the object hosting the validated element
      */
+    @JsName("getRootBeanClass")
     fun getRootBeanClass(): KClass<T>
 }

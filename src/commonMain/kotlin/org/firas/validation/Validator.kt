@@ -8,6 +8,7 @@
  */
 package org.firas.validation
 
+import kotlin.js.JsName
 import kotlin.reflect.KClass
 
 /**
@@ -33,6 +34,7 @@ interface Validator<T: Any> {
      * @throws ValidationException if a non recoverable error happens
      *         during the validation process
      */
+    @JsName("validate")
     fun validate(obj: T?, groups: KClass<T>): Set<ConstraintViolation<T>>
 
     /**
@@ -51,6 +53,7 @@ interface Validator<T: Any> {
      * @throws ValidationException if a non recoverable error happens
      *         during the validation process
      */
+    @JsName("validateProperty")
     fun validateProperty(obj: T?, propertyName: String, groups: KClass<T>): Set<ConstraintViolation<T>>
 
     /**
@@ -75,6 +78,7 @@ interface Validator<T: Any> {
      * @throws ValidationException if a non recoverable error happens
      *         during the validation process
      */
+    @JsName("validateValue")
     fun validateValue(beanType: KClass<T>, propertyName: String, value: Any?, groups: KClass<T>):
             Set<ConstraintViolation<T>>
 }

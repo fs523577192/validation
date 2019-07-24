@@ -8,6 +8,7 @@
  */
 package org.firas.validation
 
+import kotlin.js.JsName
 import kotlin.reflect.KClass
 
 /**
@@ -25,6 +26,7 @@ interface ConstraintValidatorContext {
     /**
      * @return the current un-interpolated default message
      */
+    @JsName("getDefaultConstraintMessageTemplate")
     fun getDefaultConstraintMessageTemplate(): String
 
     /**
@@ -154,6 +156,7 @@ interface ConstraintValidatorContext {
      * @param messageTemplate new un-interpolated constraint message
      * @return returns a constraint violation builder
      */
+    @JsName("buildConstraintViolationWithTemplate")
     fun buildConstraintViolationWithTemplate(messageTemplate: String): ConstraintViolationBuilder
 
     /**
@@ -186,6 +189,7 @@ interface ConstraintValidatorContext {
          *
          * @since 1.1
          */
+        @JsName("addPropertyNode")
         fun addPropertyNode(name: String): NodeBuilderCustomizableContext
 
         /**
@@ -197,6 +201,7 @@ interface ConstraintValidatorContext {
          *
          * @since 1.1
          */
+        @JsName("addBeanNode")
         fun addBeanNode(): LeafNodeBuilderCustomizableContext
 
         /**
@@ -211,6 +216,7 @@ interface ConstraintValidatorContext {
          *
          * @since 2.0
          */
+        @JsName("addContainerElementNode")
         fun addContainerElementNode(name: String,
                                     containerType: KClass<*>,
                                     typeArgumentIndex: Int): ContainerElementNodeBuilderCustomizableContext
@@ -227,6 +233,7 @@ interface ConstraintValidatorContext {
          *
          * @since 1.1
          */
+        @JsName("addParameterNode")
         fun addParameterNode(index: Int): NodeBuilderDefinedContext
 
         /**
@@ -240,6 +247,7 @@ interface ConstraintValidatorContext {
          * @return the `ConstraintValidatorContext` instance the
          * `ConstraintViolationBuilder` comes from
          */
+        @JsName("addConstraintViolation")
         fun addConstraintViolation(): ConstraintValidatorContext
 
         /**
@@ -263,6 +271,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -281,6 +290,7 @@ interface ConstraintValidatorContext {
              *
              * @return a builder representing iterable details
              */
+            @JsName("inIterable")
             fun inIterable(): LeafNodeContextBuilder
 
             /**
@@ -294,6 +304,7 @@ interface ConstraintValidatorContext {
              *
              * @since 2.0
              */
+            @JsName("inContainer")
             fun inContainer(containerClass: KClass<*>,
                             typeArgumentIndex: Int): LeafNodeBuilderCustomizableContext
 
@@ -309,6 +320,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -333,6 +345,7 @@ interface ConstraintValidatorContext {
              * @param key map key
              * @return a builder representing the current node
              */
+            @JsName("atKey")
             fun atKey(key: Any): LeafNodeBuilderDefinedContext
 
             /**
@@ -341,6 +354,7 @@ interface ConstraintValidatorContext {
              * @param index index
              * @return a builder representing the current node
              */
+            @JsName("atIndex")
             fun atIndex(index: Int): LeafNodeBuilderDefinedContext
 
             /**
@@ -355,6 +369,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -380,6 +395,7 @@ interface ConstraintValidatorContext {
              *
              * @since 1.1
              */
+            @JsName("addPropertyNode")
             fun addPropertyNode(name: String): NodeBuilderCustomizableContext
 
             /**
@@ -391,6 +407,7 @@ interface ConstraintValidatorContext {
              *
              * @since 1.1
              */
+            @JsName("addBeanNode")
             fun addBeanNode(): LeafNodeBuilderCustomizableContext
 
             /**
@@ -405,6 +422,7 @@ interface ConstraintValidatorContext {
              *
              * @since 2.0
              */
+            @JsName("addContainerElementNode")
             fun addContainerElementNode(
                     name: String,
                     containerType: KClass<*>,
@@ -422,6 +440,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -439,6 +458,7 @@ interface ConstraintValidatorContext {
              *
              * @return a builder representing iterable details
              */
+            @JsName("inIterable")
             fun inIterable(): NodeContextBuilder
 
             /**
@@ -452,6 +472,7 @@ interface ConstraintValidatorContext {
              *
              * @since 2.0
              */
+            @JsName("inContainer")
             fun inContainer(containerClass: KClass<*>,
                             typeArgumentIndex: Int): NodeBuilderCustomizableContext
 
@@ -468,6 +489,7 @@ interface ConstraintValidatorContext {
              *
              * @since 1.1
              */
+            @JsName("addPropertyNode")
             fun addPropertyNode(name: String): NodeBuilderCustomizableContext
 
             /**
@@ -479,6 +501,7 @@ interface ConstraintValidatorContext {
              *
              * @since 1.1
              */
+            @JsName("addBeanNode")
             fun addBeanNode(): LeafNodeBuilderCustomizableContext
 
             /**
@@ -493,6 +516,7 @@ interface ConstraintValidatorContext {
              *
              * @since 2.0
              */
+            @JsName("addContainerElementNode")
             fun addContainerElementNode(
                     name: String,
                     containerType: KClass<*>,
@@ -510,6 +534,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -533,6 +558,7 @@ interface ConstraintValidatorContext {
              * @param key map key
              * @return a builder representing the current node
              */
+            @JsName("atKey")
             fun atKey(key: Any): NodeBuilderDefinedContext
 
             /**
@@ -541,6 +567,7 @@ interface ConstraintValidatorContext {
              * @param index index
              * @return a builder representing the current node
              */
+            @JsName("atIndex")
             fun atIndex(index: Int): NodeBuilderDefinedContext
 
             /**
@@ -556,6 +583,7 @@ interface ConstraintValidatorContext {
              *
              * @since 1.1
              */
+            @JsName("addPropertyNode")
             fun addPropertyNode(name: String): NodeBuilderCustomizableContext
 
             /**
@@ -569,6 +597,7 @@ interface ConstraintValidatorContext {
              *
              * @since 1.1
              */
+            @JsName("addBeanNode")
             fun addBeanNode(): LeafNodeBuilderCustomizableContext
 
             /**
@@ -583,6 +612,7 @@ interface ConstraintValidatorContext {
              *
              * @since 2.0
              */
+            @JsName("addContainerElementNode")
             fun addContainerElementNode(
                     name: String,
                     containerType: KClass<*>,
@@ -600,6 +630,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -625,6 +656,7 @@ interface ConstraintValidatorContext {
              * @return a builder representing node `name`
              * @throws IllegalArgumentException if the name is null
              */
+            @JsName("addPropertyNode")
             fun addPropertyNode(name: String): NodeBuilderCustomizableContext
 
             /**
@@ -634,6 +666,7 @@ interface ConstraintValidatorContext {
              *
              * @return a builder representing the bean node
              */
+            @JsName("addBeanNode")
             fun addBeanNode(): LeafNodeBuilderCustomizableContext
 
             /**
@@ -646,6 +679,7 @@ interface ConstraintValidatorContext {
              * @return a builder representing the container element node
              * @throws IllegalArgumentException if the index is not valid
              */
+            @JsName("addContainerElementNode")
             fun addContainerElementNode(
                     name: String,
                     containerType: KClass<*>,
@@ -663,6 +697,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -682,6 +717,7 @@ interface ConstraintValidatorContext {
              *
              * @return a builder representing iterable details
              */
+            @JsName("inIterable")
             fun inIterable(): ContainerElementNodeContextBuilder
 
             /**
@@ -695,6 +731,7 @@ interface ConstraintValidatorContext {
              * @return a builder representing node `name`
              * @throws IllegalArgumentException if the name is null
              */
+            @JsName("addPropertyNode")
             fun addPropertyNode(name: String): NodeBuilderCustomizableContext
 
             /**
@@ -706,6 +743,7 @@ interface ConstraintValidatorContext {
              *
              * @return a builder representing the bean node
              */
+            @JsName("addBeanNode")
             fun addBeanNode(): LeafNodeBuilderCustomizableContext
 
             /**
@@ -718,6 +756,7 @@ interface ConstraintValidatorContext {
              * @return a builder representing the container element node
              * @throws IllegalArgumentException if the index is not valid
              */
+            @JsName("addContainerElementNode")
             fun addContainerElementNode(
                     name: String,
                     containerType: KClass<*>,
@@ -735,6 +774,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
 
@@ -759,6 +799,7 @@ interface ConstraintValidatorContext {
              * @param key map key
              * @return a builder representing the current node
              */
+            @JsName("atKey")
             fun atKey(key: Any): ContainerElementNodeBuilderDefinedContext
 
             /**
@@ -767,6 +808,7 @@ interface ConstraintValidatorContext {
              * @param index index
              * @return a builder representing the current node
              */
+            @JsName("atIndex")
             fun atIndex(index: Int): ContainerElementNodeBuilderDefinedContext
 
             /**
@@ -780,6 +822,7 @@ interface ConstraintValidatorContext {
              * @return a builder representing node `name`
              * @throws IllegalArgumentException if the name is null
              */
+            @JsName("addPropertyNode")
             fun addPropertyNode(name: String): NodeBuilderCustomizableContext
 
             /**
@@ -791,6 +834,7 @@ interface ConstraintValidatorContext {
              *
              * @return a builder representing the bean node
              */
+            @JsName("addBeanNode")
             fun addBeanNode(): LeafNodeBuilderCustomizableContext
 
             /**
@@ -803,6 +847,7 @@ interface ConstraintValidatorContext {
              * @return a builder representing the container element node
              * @throws IllegalArgumentException if the index is not valid
              */
+            @JsName("addContainerElementNode")
             fun addContainerElementNode(
                     name: String,
                     containerType: KClass<*>,
@@ -820,6 +865,7 @@ interface ConstraintValidatorContext {
              * @return `ConstraintValidatorContext` instance the
              * `ConstraintViolationBuilder` comes from
              */
+            @JsName("addConstraintViolation")
             fun addConstraintViolation(): ConstraintValidatorContext
         }
     }

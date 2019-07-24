@@ -8,6 +8,8 @@
  */
 package org.firas.validation
 
+import kotlin.js.JsName
+
 /**
  * Defines the logic to validate a given constraint `A`
  * for a given object type `T`.
@@ -46,6 +48,7 @@ interface ConstraintValidator<A: Annotation, T> {
      *
      * @param constraintAnnotation annotation instance for a given constraint declaration
      */
+    @JsName("initialize")
     fun initialize(constraintAnnotation: A)
 
     /**
@@ -60,5 +63,6 @@ interface ConstraintValidator<A: Annotation, T> {
      *
      * @return `false` if `value` does not pass the constraint
      */
+    @JsName("isValid")
     fun isValid(value: T, context: ConstraintValidatorContext): Boolean
 }

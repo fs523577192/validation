@@ -11,6 +11,7 @@ package org.firas.validation.constraintvalidators.number
 import org.firas.validation.ConstraintValidator
 import org.firas.validation.ConstraintValidatorContext
 import org.firas.validation.constraints.Max
+import kotlin.js.JsName
 
 /**
  * Check that the number being validated is less than or equal to the maximum
@@ -38,5 +39,6 @@ abstract class AbstractMaxValidator<T>: ConstraintValidator<Max, T> {
         return compare(value) <= 0
     }
 
+    @JsName("compare")
     abstract fun compare(number: T): Int
 }
